@@ -12,13 +12,15 @@ app.use(bodyParser.json());
 
 // Webhook endpoint userDetails
 app.post("/userDetails", (req, res) => {
+  const requestBody = req.body;
   const tag = req.body.fulfillmentInfo.tag;
   const sessionInfo = req.body.sessionInfo || {};
   const parameters = sessionInfo.parameters || {};
 
-  console.log("Webhook triggered with tag:", tag);
+  console.log(requestBody);
+  //console.log("Webhook triggered with tag:", tag);
   console.log("Received parameters:", parameters);
-  console.log("Received sessionInfo:", sessionInfo);
+  //console.log("Received sessionInfo:", sessionInfo);
 
   // Example: Add some logic based on parameters
   const responseText = `You sent: ${JSON.stringify(parameters)}`;
@@ -49,9 +51,11 @@ app.post("/bodyParameters", (req, res) => {
   const sessionInfo = req.body.sessionInfo || {};
   const parameters = sessionInfo.parameters || {};
 
+  const requestBody = req.body;
+  console.log(requestBody);
   //   console.log("Webhook triggered with tag:", tag);
   //   console.log("Received parameters:", parameters);
-  console.log("Received sessionInfo:", sessionInfo);
+  //console.log("Received sessionInfo:", sessionInfo);
 
   // Example: Add some logic based on parameters
   const responseText = `You sent: ${JSON.stringify(parameters)}`;
@@ -82,9 +86,11 @@ app.post("/definingUndertone", (req, res) => {
   const sessionInfo = req.body.sessionInfo || {};
   const parameters = sessionInfo.parameters || {};
 
+  const requestBody = req.body;
+  console.log(requestBody);
   //   console.log("Webhook triggered with tag:", tag);
   //   console.log("Received parameters:", parameters);
-  console.log("Received sessionInfo:", sessionInfo);
+  //console.log("Received sessionInfo:", sessionInfo);
 
   function detectUndertone(params) {
     const values = [
